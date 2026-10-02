@@ -1,16 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VideoStream</title>
-</head>
-<body>
-   <nav class="barra">
-    <a href="">Inicio</a>
-    <a href="">Explorar</a>
-    <a href="">Mi Lista</a>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gabriel Naranjo" />
+    <title>Biblioteca Horizonte</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+  <body>
+    <!--El titulo con el boton de Ingresar con el correo-->
+    <header class="Barra">
+      <div class="brand-container">
+        <img src="static/images/Logo.png" alt="Logo" />
+        <h1>Video<span class="navbar-brand">Stream</span></h1>
+      </div>
+
+      <nav class="form-header">
+        <a href="">Inicio</a>
+        <a href="">Explorar</a>
+        <a href="">Mi Lista</a>
+      </nav>
+
     
-   </nav>
-</body>
+          <img src="static/images/Campana.png" alt="Campana">
+        </form>
+
+        <div class="Seleccionado">
+          <img src="static/images/Perfil.png" alt="Perfil" />
+        </div>
+      </div>
+    </header>
+
+<!--Un main con una clase que tiene el video -->
+    <main class="principal">
+      <section class="izquierda">
+          <h2>Lagos y montañas</h2>
+        </div>
+
+        <div class="video-sub">
+          <div class="video-container" id="videoContainer">
+            <video
+              id="miVideo"
+              class="principal-video"
+              autoplay
+              muted
+              loop
+              playsinline
+            >
+              <source src="static/videos/videoplayback.mp4" type="video/mp4" />
+            </video>
+            <img
+              id="miImagen"
+              src="static/images/Prince.png"
+              alt="Miniatura"
+              class="hover-image"
+            />
+          </div>
+          <p class="pie-video">Conoce la Biblioteca Horizonte</p>
+        </div>
+      </section>
+
+      <!--Libros-->
+      <section class="derecha">
+        <h2>Libros recomendados:</h2>
+
+        <div class="contenedor">
+          <img src="static/images/Garcia.png" alt="Cien años de soledad" />
+          <div class="info-tarjeta">
+            <div class="texto-tarjeta">
+              <h3>Cien años de soledad</h3>
+              <p>Gabriel García Márquez</p>
+              <a href="#" target="_blank">Ver más...</a>
+            </div>
+            <button class="btn-mas" type="button">+</button>
+          </div>
+        </div>
+
+        <div class="contenedor">
+          <img src="static/images/Yuval.png" alt="Sapiens" />
+          <div class="info-tarjeta">
+            <div class="texto-tarjeta">
+              <h3>Sapiens</h3>
+              <p>Yuval Noah Harari</p>
+              <a href="#" target="_blank">Ver más...</a>
+            </div>
+            <button class="btn-mas" type="button">+</button>
+          </div>
+        </div>
+
+        <div class="contenedor">
+          <!-- Se corrigió el espacio en la URL de la imagen reemplazándolo por %20 -->
+          <img src="static/images/El%20principito.png" alt="El principito" />
+          <div class="info-tarjeta">
+            <div class="texto-tarjeta">
+              <h3>El principito</h3>
+              <p>Antoine de Saint-Exupéry</p>
+              <a href="#" target="_blank">Ver más...</a>
+            </div>
+            <button class="btn-mas" type="button">+</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="static/js/script.js"></script>
+  </body>
 </html>
