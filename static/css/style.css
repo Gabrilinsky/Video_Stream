@@ -1,56 +1,77 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
   background-color: #fefefe;
+  color: #222;
 }
 
-/* Header y Barra de Navegación */
+/* --------------------------------------------------
+   HEADER & BARRA DE NAVEGACIÓN
+   -------------------------------------------------- */
 .Barra {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 40px;
+  padding: 12px 24px;
   background-color: #ffffff;
-  width: 100%;
   border-bottom: 1px solid #eee;
+  gap: 15px;
 }
 
 .brand-container {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .brand-container img {
-  height: 45px;
+  height: 36px;
   width: auto;
 }
 
 .brand-container h1 {
-  margin: 0;
+  font-size: 20px;
   color: #000;
-  font-size: 24px;
 }
 
-.brand-container h1.navbar-brand {
-  color: black;
+.Rojo {
+  color: #e50914;
 }
 
 .form-header {
   display: flex;
+  gap: 15px;
   align-items: center;
-  gap: 30px;
 }
 
 .form-header a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-header a:hover {
+  color: #18354c;
+}
+
+.buscador-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-form .form-control {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
 }
 
 .Seleccionado {
@@ -60,28 +81,30 @@ body {
 }
 
 .Seleccionado img {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
 }
 
-/* Layout Principal */
+/* --------------------------------------------------
+   LAYOUT PRINCIPAL RESPONSIVO
+   -------------------------------------------------- */
 .principal {
   display: flex;
-  gap: 30px;
-  max-width: 1200px;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1280px;
   margin: 20px auto;
-  padding: 0 20px;
+  padding: 0 16px;
 }
 
-/* Columna Izquierda */
 .izquierda {
-  flex: 2;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  background-color: #e8ecef;
-  padding: 20px;
+  gap: 12px;
+  background-color: #f8f9fa;
+  padding: 16px;
   border-radius: 8px;
 }
 
@@ -90,67 +113,379 @@ body {
   background-color: #000;
   border-radius: 8px;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
 }
 
 .video-container video {
   width: 100%;
+  height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 .video-sub h2 {
-  margin: 10px 0 5px 0;
-  font-size: 20px;
+  font-size: 1.25rem;
+  margin-bottom: 4px;
 }
 
-.video-sub p {
-  margin: 0;
-  font-size: 13px;
+.video-sub .meta-info {
+  font-size: 0.85rem;
   color: #666;
 }
 
-/* Columna Derecha (Contenedor vertical) */
-.columna-derecha {
-  flex: 1;
+/* Botones de acción */
+.acciones-video {
   display: flex;
-  flex-direction: column;
-  gap: 25px;
-  max-width: 380px;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
 }
 
-.derecha,
-.derecha-abajo {
+.btn-accion {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 18px;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.btn-accion:hover {
+  background-color: #f3f4f6;
+}
+
+.btn-like.liked {
+  border: 1.5px solid #1a73e8;
+  color: #1a73e8;
+  background-color: #f0f7ff;
+}
+
+/* --------------------------------------------------
+   SECCIÓN CANAL Y SUSCRIPCIÓN
+   -------------------------------------------------- */
+.canal-contenedor {
+  border-top: 1px solid #e2e8f0;
+  margin-top: 16px;
+  padding-top: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.derecha h2,
-.derecha-abajo h2 {
-  font-size: 18px;
+.canal-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.canal-detalles {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.canal-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #d1d5db;
+  border: 1px solid #9ca3af;
+  position: relative;
+  overflow: hidden;
+}
+
+.canal-avatar::before,
+.canal-avatar::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #6b7280;
+}
+
+.canal-avatar::before {
+  transform: rotate(45deg);
+}
+
+.canal-avatar::after {
+  transform: rotate(-45deg);
+}
+
+.canal-texto h3 {
+  font-size: 1rem;
+  font-weight: bold;
   margin: 0;
+}
+
+.canal-texto p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 2px 0 0 0;
+}
+
+.suscripcion-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-suscribirse {
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.btn-suscribirse:hover {
+  background-color: #cc0000;
+}
+
+.btn-suscribirse.suscrito {
+  background-color: #e5e7eb;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.btn-campana-notif {
+  background-color: #e5e7eb;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.sub-plus {
+  color: #16a34a;
+  font-weight: bold;
+  display: none;
+}
+
+.sub-plus.visible {
+  display: inline;
+}
+
+.canal-descripcion {
+  font-size: 0.88rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.btn-mostrar-mas {
+  background: transparent;
+  border: none;
+  color: #2563eb;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------
+   SECCIÓN MÁS VIDEOS
+   -------------------------------------------------- */
+.mas-videos-seccion {
+  margin-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 16px;
+}
+
+.mas-videos-seccion h2 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 12px;
   color: #111;
 }
 
-/* Estructura de Tarjetas */
+.mas-videos-contenedor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.btn-flecha {
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0 4px;
+  color: #333;
+  line-height: 1;
+}
+
+.btn-flecha:hover {
+  color: #000;
+}
+
+.mas-videos-grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+.mas-videos-grid::-webkit-scrollbar {
+  height: 4px;
+}
+
+.mas-videos-grid::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.card-mas-video {
+  flex: 0 0 calc(25% - 9px);
+  min-width: 140px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.thumb-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #d1d5db;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #9ca3af;
+}
+
+.thumb-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.duracion-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.card-info {
+  margin-top: 6px;
+}
+
+.card-info h3 {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.card-info p {
+  font-size: 0.78rem;
+  color: #666;
+}
+
+/* --------------------------------------------------
+   COLUMNA DERECHA Y TARJETAS RECOMENDADOS / COLA
+   -------------------------------------------------- */
+.columna-derecha {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.derecha, .derecha-abajo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header-seccion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-seccion h2, .derecha-abajo h2 {
+  font-size: 1.1rem;
+  color: #111;
+}
+
+.btn-limpiar {
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
 .contenedor {
   display: flex;
   align-items: center;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  padding: 10px;
+  padding: 8px;
   gap: 12px;
   width: 100%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Tamaño controlado del video miniatura */
-.contenedor .principal-video {
-  width: 120px;
-  height: 75px;
-  object-fit: cover;
-  border-radius: 6px;
+/* Miniatura lateral con badge de duración */
+.thumb-wrapper-lateral {
+  position: relative;
+  width: 110px;
+  height: 68px;
   flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.thumb-wrapper-lateral .principal-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}
+
+.thumb-wrapper-lateral .duracion-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 1px 4px;
+  border-radius: 3px;
+  pointer-events: none;
 }
 
 .info-tarjeta {
@@ -161,31 +496,31 @@ body {
 }
 
 .texto-tarjeta h3 {
-  margin: 0 0 4px 0;
-  font-size: 14px;
+  font-size: 0.9rem;
   color: #222;
+  margin-bottom: 2px;
 }
 
-.texto-tarjeta p {
-  margin: 0 0 6px 0;
-  font-size: 12px;
+.texto-tarjeta .canal-nombre {
+  font-size: 0.8rem;
   color: #666;
+  margin-top: 2px;
 }
 
-.texto-tarjeta a {
-  font-size: 12px;
-  color: #2b5b84;
-  text-decoration: none;
-  font-weight: bold;
+.texto-tarjeta .views {
+  font-size: 0.78rem;
+  color: #777;
+  margin-top: 2px;
 }
 
-.info-tarjeta button,
-.btn-mas {
-  background-color: #eee;
+/* Botón 'x' eliminar */
+.boton-eliminar {
   border: none;
+  background-color: #f1f3f5;
+  color: #555;
   border-radius: 4px;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   font-weight: bold;
   cursor: pointer;
   display: flex;
@@ -193,11 +528,89 @@ body {
   justify-content: center;
 }
 
-.btn-mas {
-  background-color: #18354c;
-  color: white;
+/* Botón '+' con borde negro de recomendados */
+.btn-add-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff;
+  border: 1.5px solid #000000;
+  border-radius: 6px;
+  color: #000000;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
-.Rojo{
-  color: red;
+.btn-add-icon:hover {
+  background-color: #f0f0f0;
+}
+
+.btn-add-icon:active {
+  transform: scale(0.95);
+}
+
+/* --------------------------------------------------
+   NOTIFICACIÓN TOAST
+   -------------------------------------------------- */
+.toast {
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background-color: #1f2937;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 12px 18px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.toast-close:hover {
+  color: #ffffff;
+}
+
+/* --------------------------------------------------
+   MEDIA QUERIES (ESCRITORIO)
+   -------------------------------------------------- */
+@media (min-width: 900px) {
+  .principal {
+    flex-direction: row;
+  }
+
+  .izquierda {
+    flex: 2;
+  }
+
+  .columna-derecha {
+    flex: 1;
+    max-width: 380px;
+  }
 }

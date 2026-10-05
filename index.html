@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="static/css/style.css" />
   </head>
   <body>
+
+    <!-- Notificación Flotante (Toast) -->
+    <div id="toast" class="toast">
+      <span>✔ Video añadido a la cola</span>
+      <button type="button" id="btn-close-toast" class="toast-close">✕</button>
+    </div>
+
     <!-- Header -->
     <header class="Barra">
       <div class="brand-container">
@@ -21,6 +28,15 @@
         <a href="#">Mi Lista</a>
       </nav>
 
+      <div class="form-header buscador-container">
+        <form class="login-form">
+          <input class="form-control" type="text" placeholder="Buscar..." required />
+        </form>
+        <div class="brand-container">
+          <img src="static/images/Lupa.png" alt="Lupa" />
+        </div>
+      </div>
+
       <div class="Seleccionado">
         <img src="static/images/Campana.png" alt="Campana" />
         <img src="static/images/Perfil.png" alt="Perfil" />
@@ -29,65 +45,177 @@
 
     <!-- Contenido Principal -->
     <main class="principal">
-      <!-- Columna Izquierda (Video Principal) -->
+      <!-- Columna Izquierda (Video Principal + Información + Más Videos) -->
       <section class="izquierda">
         <div class="video-container" id="videoContainer">
           <video controls autoplay muted loop playsinline controlsList="nodownload">
             <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
           </video>
         </div>
+        
         <div class="video-sub">
           <h2>Lagos y montañas</h2>
-          <p>95 mil visualizaciones - 10 abr 2024</p>
+          <p class="meta-info">95 mil visualizaciones - 10 abr 2024</p>
+          
+          <div class="acciones-video">
+            <button type="button" id="btn-like" class="btn-accion btn-like">
+              👍 <span id="like-count">4,8 K</span>
+            </button>
+            <button type="button" class="btn-accion">
+              👎 <span>120</span>
+            </button>
+            <button type="button" class="btn-accion btn-add-queue">
+              ➕ Añadir a la cola
+            </button>
+          </div>
         </div>
+
+        <!-- Sección de Canal y Suscripción -->
+        <div class="canal-contenedor">
+          <div class="canal-info-header">
+            <div class="canal-detalles">
+              <div class="canal-avatar"></div>
+              <div class="canal-texto">
+                <h3>VideoStream</h3>
+                <p><span id="sub-count">1,2 M</span> de suscriptores <span id="sub-plus" class="sub-plus">(+1)</span></p>
+              </div>
+            </div>
+
+            <div class="suscripcion-wrapper">
+              <button type="button" id="btn-suscripcion" class="btn-suscribirse">Suscribirse</button>
+              <button type="button" id="btn-campana" class="btn-campana-notif hidden">🔔</button>
+            </div>
+          </div>
+
+          <div class="canal-descripcion">
+            <p id="texto-descripcion">
+              Un recorrido por los lagos más hermosos de la Patagonia y sus alrededores. Consejos, rutas y paisajes imperdibles.
+            </p>
+            <button type="button" id="btn-mostrar-mas" class="btn-mostrar-mas">Mostrar más ▾</button>
+          </div>
+        </div>
+
+        <!-- Sección Más Videos -->
+        <section class="mas-videos-seccion">
+          <h2>Más videos</h2>
+          <div class="mas-videos-contenedor">
+            <button type="button" class="btn-flecha" id="btn-scroll-left">‹</button>
+
+            <div class="mas-videos-grid">
+              <!-- Tarjeta 1 -->
+              <div class="card-mas-video">
+                <div class="thumb-wrapper">
+                  <video class="preview-video" muted loop playsinline>
+                    <source src="static/video/Cascada de los vientos - Equipo Ruta Trekking Chile.mp4" type="video/mp4" />
+                  </video>
+                  <span class="duracion-badge">6:15</span>
+                </div>
+                <div class="card-info">
+                  <h3>Rutas de trekking</h3>
+                  <p>80 mil visualizaciones</p>
+                </div>
+              </div>
+
+              <!-- Tarjeta 2 -->
+              <div class="card-mas-video">
+                <div class="thumb-wrapper">
+                  <video class="preview-video" muted loop playsinline>
+                    <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
+                  </video>
+                  <span class="duracion-badge">4:32</span>
+                </div>
+                <div class="card-info">
+                  <h3>Lagos y montañas</h3>
+                  <p>95 mil visualizaciones</p>
+                </div>
+              </div>
+
+              <!-- Tarjeta 3 -->
+              <div class="card-mas-video">
+                <div class="thumb-wrapper">
+                  <video class="preview-video" muted loop playsinline>
+                    <source src="static/video/Fauna de Chile.mp4" type="video/mp4" />
+                  </video>
+                  <span class="duracion-badge">3:50</span>
+                </div>
+                <div class="card-info">
+                  <h3>Fauna patagónica</h3>
+                  <p>60 mil visualizaciones</p>
+                </div>
+              </div>
+
+              <!-- Tarjeta 4 -->
+              <div class="card-mas-video">
+                <div class="thumb-wrapper">
+                  <video class="preview-video" muted loop playsinline>
+                    <source src="static/video/10 Ciudades de Chile 🇨🇱 _ Imprescindibles.mp4" type="video/mp4" />
+                  </video>
+                  <span class="duracion-badge">4:18</span>
+                </div>
+                <div class="card-info">
+                  <h3>Consejos para viajar</h3>
+                  <p>110 mil visualizaciones</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
 
-      <!-- Columna Derecha (Secciones Verticales) -->
-      <main class="columna-derecha">
-        <!-- Sección 1: Siguiente Cola -->
+      <!-- Columna Derecha -->
+      <aside class="columna-derecha">
+        <!-- Sección 1: Siguiente en la Cola -->
         <section class="derecha">
-          <h2>Siguiente Cola</h2>
-          <button type="button">Limpiar cola</button>
+          <div class="header-seccion">
+            <h2>Siguiente en la Cola</h2>
+            <button type="button" class="btn-limpiar">Limpiar cola</button>
+          </div>
 
           <div class="contenedor">
-            <video controls class="principal-video" autoplay muted loop playsinline>
-              <source src="static/video/This is PATAGONIA in Chile and Why You Need To Go _ Torres del Paine National Park in 4K.mp4" type="video/mp4" />
-            </video>
+            <div class="thumb-wrapper-lateral">
+              <video class="principal-video" muted loop playsinline>
+                <source src="static/video/This is PATAGONIA in Chile and Why You Need To Go _ Torres del Paine National Park in 4K.mp4" type="video/mp4" />
+              </video>
+              <span class="duracion-badge">12:10</span>
+            </div>
             <div class="info-tarjeta">
               <div class="texto-tarjeta">
                 <h3>Explorando la Patagonia</h3>
-                <p>VideoStream</p>
-                <a href="#" target="_blank">Ver más...</a>
+                <p class="canal-nombre">VideoStream</p>
               </div>
-              <button type="button">x</button>
+              <button type="button" class="boton-eliminar">x</button>
             </div>
           </div>
 
           <div class="contenedor">
-            <video controls class="principal-video" autoplay muted loop playsinline>
-              <source src="static/video/Probando Comida Callejera de Chile.mp4" type="video/mp4" />
-            </video>
+            <div class="thumb-wrapper-lateral">
+              <video class="principal-video" muted loop playsinline>
+                <source src="static/video/Probando Comida Callejera de Chile.mp4" type="video/mp4" />
+              </video>
+              <span class="duracion-badge">8:45</span>
+            </div>
             <div class="info-tarjeta">
               <div class="texto-tarjeta">
                 <h3>Comida Callejera</h3>
-                <p>VideoStream</p>
-                <a href="#" target="_blank">Ver más...</a>
+                <p class="canal-nombre">VideoStream</p>
               </div>
-              <button type="button">x</button>
+              <button type="button" class="boton-eliminar">x</button>
             </div>
           </div>
 
           <div class="contenedor">
-            <video controls class="principal-video" autoplay muted loop playsinline>
-              <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
-            </video>
+            <div class="thumb-wrapper-lateral">
+              <video class="principal-video" muted loop playsinline>
+                <source src="static/video/10 Ciudades de Chile 🇨🇱 _ Imprescindibles.mp4" type="video/mp4" />
+              </video>
+              <span class="duracion-badge">10:02</span>
+            </div>
             <div class="info-tarjeta">
               <div class="texto-tarjeta">
                 <h3>Ciudades del Mundo</h3>
-                <p>VideoStream</p>
-                <a href="#" target="_blank">Ver más...</a>
+                <p class="canal-nombre">VideoStream</p>
               </div>
-              <button type="button">x</button>
+              <button type="button" class="boton-eliminar">x</button>
             </div>
           </div>
         </section>
@@ -97,48 +225,57 @@
           <h2>Recomendados</h2>
 
           <div class="contenedor">
-            <video controls class="principal-video" autoplay muted loop playsinline>
-              <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
-            </video>
+            <div class="thumb-wrapper-lateral">
+              <video class="principal-video" muted loop playsinline>
+                <source src="static/video/Cascada de los vientos - Equipo Ruta Trekking Chile.mp4" type="video/mp4" />
+              </video>
+              <span class="duracion-badge">5:20</span>
+            </div>
             <div class="info-tarjeta">
               <div class="texto-tarjeta">
                 <h3>Rutas de trekking</h3>
-                <p>VideoStream</p>
-                <a href="#" target="_blank">Ver más...</a>
+                <p class="canal-nombre">VideoStream</p>
+                <p class="views">80 mil visualizaciones</p>
               </div>
-              <button class="btn-mas" type="button">+</button>
+              <button type="button" class="btn-add-queue btn-add-icon" title="Añadir a la cola">+</button>
             </div>
           </div>
 
           <div class="contenedor">
-            <video controls class="principal-video" autoplay muted loop playsinline>
-              <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
-            </video>
+            <div class="thumb-wrapper-lateral">
+              <video class="principal-video" muted loop playsinline>
+                <source src="static/video/Fauna de Chile.mp4" type="video/mp4" />
+              </video>
+              <span class="duracion-badge">3:50</span>
+            </div>
             <div class="info-tarjeta">
               <div class="texto-tarjeta">
-                <h3>Fauna Patagonica</h3>
-                <p>VideoStream</p>
-                <a href="#" target="_blank">Ver más...</a>
+                <h3>Fauna patagónica</h3>
+                <p class="canal-nombre">VideoStream</p>
+                <p class="views">60 mil visualizaciones</p>
               </div>
-              <button class="btn-mas" type="button">+</button>
+              <button type="button" class="btn-add-queue btn-add-icon" title="Añadir a la cola">+</button>
             </div>
           </div>
 
           <div class="contenedor">
-            <video controls class="principal-video" autoplay muted loop playsinline>
-              <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
-            </video>
+            <div class="thumb-wrapper-lateral">
+              <video class="principal-video" muted loop playsinline>
+                <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
+              </video>
+              <span class="duracion-badge">4:18</span>
+            </div>
             <div class="info-tarjeta">
               <div class="texto-tarjeta">
-                <h3>Atardeceres Increibles</h3>
-                <p>VideoStream</p>
-                <a href="#" target="_blank">Ver más...</a>
+                <h3>Atardeceres increíbles</h3>
+                <p class="canal-nombre">VideoStream</p>
+                <p class="views">72 mil visualizaciones</p>
               </div>
-              <button class="btn-mas" type="button">+</button>
+              <button type="button" class="btn-add-queue btn-add-icon" title="Añadir a la cola">+</button>
             </div>
           </div>
         </section>
-      </main>
+      </aside>
     </main>
 
     <script src="static/js/script.js"></script>
