@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 
-/* Todo el sitio web*/
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +9,7 @@ body {
   background-color: #fefefe;
 }
 
-/*La barra de navegacion dentro del header */
+/* Header y Barra de Navegación */
 .Barra {
   display: flex;
   align-items: center;
@@ -18,21 +17,7 @@ body {
   padding: 15px 40px;
   background-color: #ffffff;
   width: 100%;
-}
-
-.Barra > img {
-  height: 45px;
-}
-
-.navbar {
-  width: 100%;
-}
-
-/* Navbar-brand el tamaño del texto: Horizonte */
-.navbar-brand {
-color: #fb0404;
-font-weight: bold;
-font-size: 28px;
+  border-bottom: 1px solid #eee;
 }
 
 .brand-container {
@@ -41,17 +26,19 @@ font-size: 28px;
   gap: 12px;
 }
 
-.brand-container h1 {
-  color: #000;
-}
-
-.brand-container img{
+.brand-container img {
   height: 45px;
   width: auto;
 }
 
+.brand-container h1 {
+  margin: 0;
+  color: #000;
+  font-size: 24px;
+}
+
 .brand-container h1.navbar-brand {
-  color: #2b5b84;
+  color: black;
 }
 
 .form-header {
@@ -60,87 +47,25 @@ font-size: 28px;
   gap: 30px;
 }
 
-.login-form {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.form-control {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.btn-ingresar {
-  background-color: #18354c;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
+.form-header a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
 }
 
 .Seleccionado {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .Seleccionado img {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
 }
 
-
-.Seleccionado .num {
-  font-weight: bold;
-  font-size: 16px;
-  margin-left: 4px;
-}
-
-.Cuadros {
-  display: flex;
-  background-color: #d2dee9;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  padding: 20px;
-  width: 90%;
-  max-width: 900px;
-  flex-wrap: wrap;
-  margin:  auto;
-  box-sizing: border-box;
-  border-radius: 8px;
-}
-
-.Libro {
-display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    padding: 15px 10px;
-    border-radius: 6px;
-    flex: 2;                   
-    max-width: 110px;          
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.Libro img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-
-.Libro p {
-margin: 8px 0 0 0;
-font-size: 13px;
-color: #000000;
-text-align: center;
-}
-
-
+/* Layout Principal */
 .principal {
   display: flex;
   gap: 30px;
@@ -149,84 +74,83 @@ text-align: center;
   padding: 0 20px;
 }
 
+/* Columna Izquierda */
 .izquierda {
   flex: 2;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
+  flex-direction: column;
+  gap: 15px;
   background-color: #e8ecef;
-  padding: 30px;
+  padding: 20px;
   border-radius: 8px;
 }
 
-.bloque-titulo {
-  flex: 1;
-}
-
-.bloque-titulo h2 {
-  font-size: 28px;
-  line-height: 1.2;
-  margin: 0 0 15px 0;
-  color: #000;
-}
-
-.linea-azul {
-  width: 40px;
-  height: 4px;
-  background-color: #2b5b84;
-  margin-bottom: 15px;
-}
-
-.bloque-titulo p {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.4;
-}
-
-.contenido-izquierda {
-  flex: 1.5;
-}
-
-.contenido-izquierda video {
+.video-container {
   width: 100%;
-  max-width: 400px;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.video-sub {
-  font-size: 12px;
+.video-container video {
+  width: 100%;
+  display: block;
+}
+
+.video-sub h2 {
+  margin: 10px 0 5px 0;
+  font-size: 20px;
+}
+
+.video-sub p {
+  margin: 0;
+  font-size: 13px;
   color: #666;
-  margin-top: 6px;
 }
 
-.derecha {
+/* Columna Derecha (Contenedor vertical) */
+.columna-derecha {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 25px;
+  max-width: 380px;
 }
 
-.derecha h2 {
-  font-size: 20px;
-  margin: 0 0 2px 0;
-}
-
-.contenedor {
+.derecha,
+.derecha-abajo {
   display: flex;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 10px;
-  align-items: center;
+  flex-direction: column;
   gap: 12px;
 }
 
-.contenedor img {
-  width: 70px;
-  height: 90px;
+.derecha h2,
+.derecha-abajo h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #111;
+}
+
+/* Estructura de Tarjetas */
+.contenedor {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  gap: 12px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Tamaño controlado del video miniatura */
+.contenedor .principal-video {
+  width: 120px;
+  height: 75px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
 .info-tarjeta {
@@ -238,12 +162,12 @@ text-align: center;
 
 .texto-tarjeta h3 {
   margin: 0 0 4px 0;
-  font-size: 15px;
+  font-size: 14px;
   color: #222;
 }
 
 .texto-tarjeta p {
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   font-size: 12px;
   color: #666;
 }
@@ -251,17 +175,17 @@ text-align: center;
 .texto-tarjeta a {
   font-size: 12px;
   color: #2b5b84;
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: bold;
 }
 
+.info-tarjeta button,
 .btn-mas {
-  background-color: #18354c;
-  color: white;
+  background-color: #eee;
   border: none;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  font-size: 16px;
+  border-radius: 4px;
+  width: 26px;
+  height: 26px;
   font-weight: bold;
   cursor: pointer;
   display: flex;
@@ -269,35 +193,11 @@ text-align: center;
   justify-content: center;
 }
 
-.video-container {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  display: block;
-  overflow: hidden;
-  cursor: pointer;
+.btn-mas {
+  background-color: #18354c;
+  color: white;
 }
 
-
-.principal-video {
-  width: 100%;
-  display: block;
-}
-
-
-.hover-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  pointer-events: none; 
-  transition: opacity 0.2s ease-in-out;
-}
-
-
-.video-container:hover .hover-image {
-  opacity: 1;
+.Rojo{
+  color: red;
 }

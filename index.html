@@ -4,103 +4,141 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Gabriel Naranjo" />
-    <title>Biblioteca Horizonte</title>
+    <title>VideoStream</title>
     <link rel="stylesheet" href="static/css/style.css" />
   </head>
   <body>
-    <!--El titulo con el boton de Ingresar con el correo-->
+    <!-- Header -->
     <header class="Barra">
       <div class="brand-container">
         <img src="static/images/Logo.png" alt="Logo" />
-        <h1>Video<span class="navbar-brand">Stream</span></h1>
+        <h1 class="navbar-brand">Video<span class="Rojo">Stream</span></h1>
       </div>
 
       <nav class="form-header">
-        <a href="">Inicio</a>
-        <a href="">Explorar</a>
-        <a href="">Mi Lista</a>
+        <a href="#">Inicio</a>
+        <a href="#">Explorar</a>
+        <a href="#">Mi Lista</a>
       </nav>
 
-    
-          <img src="static/images/Campana.png" alt="Campana">
-        </form>
-
-        <div class="Seleccionado">
-          <img src="static/images/Perfil.png" alt="Perfil" />
-        </div>
+      <div class="Seleccionado">
+        <img src="static/images/Campana.png" alt="Campana" />
+        <img src="static/images/Perfil.png" alt="Perfil" />
       </div>
     </header>
 
-<!--Un main con una clase que tiene el video -->
+    <!-- Contenido Principal -->
     <main class="principal">
+      <!-- Columna Izquierda (Video Principal) -->
       <section class="izquierda">
-          <h2>Lagos y montañas</h2>
+        <div class="video-container" id="videoContainer">
+          <video controls autoplay muted loop playsinline controlsList="nodownload">
+            <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
+          </video>
         </div>
-
         <div class="video-sub">
-          <div class="video-container" id="videoContainer">
-            <video
-              id="miVideo"
-              class="principal-video"
-              autoplay
-              muted
-              loop
-              playsinline
-            >
-              <source src="static/videos/videoplayback.mp4" type="video/mp4" />
+          <h2>Lagos y montañas</h2>
+          <p>95 mil visualizaciones - 10 abr 2024</p>
+        </div>
+      </section>
+
+      <!-- Columna Derecha (Secciones Verticales) -->
+      <main class="columna-derecha">
+        <!-- Sección 1: Siguiente Cola -->
+        <section class="derecha">
+          <h2>Siguiente Cola</h2>
+          <button type="button">Limpiar cola</button>
+
+          <div class="contenedor">
+            <video class="principal-video" autoplay muted loop playsinline>
+              <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
             </video>
-            <img
-              id="miImagen"
-              src="static/images/Prince.png"
-              alt="Miniatura"
-              class="hover-image"
-            />
-          </div>
-          <p class="pie-video">Conoce la Biblioteca Horizonte</p>
-        </div>
-      </section>
-
-      <!--Libros-->
-      <section class="derecha">
-        <h2>Libros recomendados:</h2>
-
-        <div class="contenedor">
-          <img src="static/images/Garcia.png" alt="Cien años de soledad" />
-          <div class="info-tarjeta">
-            <div class="texto-tarjeta">
-              <h3>Cien años de soledad</h3>
-              <p>Gabriel García Márquez</p>
-              <a href="#" target="_blank">Ver más...</a>
+            <div class="info-tarjeta">
+              <div class="texto-tarjeta">
+                <h3>Explorando la Patagonia</h3>
+                <p>VideoStream</p>
+                <a href="#" target="_blank">Ver más...</a>
+              </div>
+              <button type="button">x</button>
             </div>
-            <button class="btn-mas" type="button">+</button>
           </div>
-        </div>
 
-        <div class="contenedor">
-          <img src="static/images/Yuval.png" alt="Sapiens" />
-          <div class="info-tarjeta">
-            <div class="texto-tarjeta">
-              <h3>Sapiens</h3>
-              <p>Yuval Noah Harari</p>
-              <a href="#" target="_blank">Ver más...</a>
+          <div class="contenedor">
+            <video class="principal-video" autoplay muted loop playsinline>
+              <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
+            </video>
+            <div class="info-tarjeta">
+              <div class="texto-tarjeta">
+                <h3>Comida Callejera</h3>
+                <p>VideoStream</p>
+                <a href="#" target="_blank">Ver más...</a>
+              </div>
+              <button type="button">x</button>
             </div>
-            <button class="btn-mas" type="button">+</button>
           </div>
-        </div>
 
-        <div class="contenedor">
-          <!-- Se corrigió el espacio en la URL de la imagen reemplazándolo por %20 -->
-          <img src="static/images/El%20principito.png" alt="El principito" />
-          <div class="info-tarjeta">
-            <div class="texto-tarjeta">
-              <h3>El principito</h3>
-              <p>Antoine de Saint-Exupéry</p>
-              <a href="#" target="_blank">Ver más...</a>
+          <div class="contenedor">
+            <video class="principal-video" autoplay muted loop playsinline>
+              <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
+            </video>
+            <div class="info-tarjeta">
+              <div class="texto-tarjeta">
+                <h3>Ciudades del Mundo</h3>
+                <p>VideoStream</p>
+                <a href="#" target="_blank">Ver más...</a>
+              </div>
+              <button type="button">x</button>
             </div>
-            <button class="btn-mas" type="button">+</button>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <!-- Sección 2: Recomendados -->
+        <section class="derecha-abajo">
+          <h2>Recomendados</h2>
+
+          <div class="contenedor">
+            <video class="principal-video" autoplay muted loop playsinline>
+              <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
+            </video>
+            <div class="info-tarjeta">
+              <div class="texto-tarjeta">
+                <h3>Rutas de trekking</h3>
+                <p>VideoStream</p>
+                <a href="#" target="_blank">Ver más...</a>
+              </div>
+              <button class="btn-mas" type="button">+</button>
+            </div>
+          </div>
+
+          <div class="contenedor">
+            <video class="principal-video" autoplay muted loop playsinline>
+              <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
+            </video>
+            <div class="info-tarjeta">
+              <div class="texto-tarjeta">
+                <h3>Fauna Patagonica</h3>
+                <p>VideoStream</p>
+                <a href="#" target="_blank">Ver más...</a>
+              </div>
+              <button class="btn-mas" type="button">+</button>
+            </div>
+          </div>
+
+          <div class="contenedor">
+            <video controls class="principal-video" autoplay muted loop playsinline>
+              <source src="static/video/Explora los Secretos Geológicos de la Cordillera de los Andes.mp4" type="video/mp4" />
+            </video>
+            <div class="info-tarjeta">
+              <div class="texto-tarjeta">
+                <h3>Atardeceres Increibles</h3>
+                <p>VideoStream</p>
+                <a href="#" target="_blank">Ver más...</a>
+              </div>
+              <button class="btn-mas" type="button">+</button>
+            </div>
+          </div>
+        </section>
+      </main>
     </main>
 
     <script src="static/js/script.js"></script>
